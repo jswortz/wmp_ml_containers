@@ -8,7 +8,7 @@
 
 ## Running the Container Interactively
 
-Note that this is not really necissary unless you want to get into the guts of the container interactively
+Note that this is not really necessary unless you want to get into the guts of the container interactively
 
 ```docker run -a stdin -a stdout -i -t ubuntu /bin/bash```
 
@@ -37,7 +37,7 @@ Example of building a model can be found in python/notebooks
 
 ```docker run -d -p 5000:5000 wmp-ml-predict```
 
-Using your favorite JSON/CURL tool (Postman is a good one) you should be able to make predicitons!
+Using your favorite JSON/CURL tool (Postman is a good one) you should be able to make predictions!
 
 ```0.0.0.0:5000/api/v1.0/iris```
 ```{"inputs": [4.1, 3.5, 1.4, 0.2]}```
