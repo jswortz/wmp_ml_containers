@@ -1,11 +1,8 @@
 FROM ubuntu:16.04
 MAINTAINER Jeremy Wortz <jwortz@wmp.com>
 
-ENV TERM=xterm
 ENV LANG en_US.UTF-8
 RUN apt-get update -y && apt-get install build-essential -y
-RUN apt-get update
-
 ADD apt-packages.txt /tmp/apt-packages.txt
 RUN xargs -a /tmp/apt-packages.txt apt-get install -y
 ENV LC_ALL=C

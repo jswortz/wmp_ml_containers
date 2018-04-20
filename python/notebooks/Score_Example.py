@@ -11,10 +11,10 @@ from pytz import timezone
 import numpy as np
 
 #     example array([[5.1, 3.5, 1.4, 0.2]])
-@app.route('/api/v1.0/iris', methods=['POST'])
+@app.route('/api/v1.0/taxiRAP', methods=['POST'])
    
 def index():
-    clf = joblib.load('./trainedModels/filename.pkl') # load the model
+    clf = joblib.load('./trainedModels/TaxiFareRegression.pkl') # load the model
     # Fetching inputs
     query = request.get_json(silent=True, force=True)['inputs']
     X = np.array([query['inputs']])
@@ -25,7 +25,7 @@ def index():
 #     y_prob = model.predict_proba(X)
 
     # Building output
-    output = [{"label":int(y)} for (y) in zip(y_pred)]
+    output = [{"predictedTaxiFare":int(y)} for (y) in zip(y_pred)]
 
     # Logging predictions
     for (i,o) in zip(query, output):
