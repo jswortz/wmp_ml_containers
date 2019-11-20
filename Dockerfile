@@ -21,9 +21,9 @@ RUN useradd --create-home --home-dir /home/ds --shell /bin/bash ds
 RUN chown -R ds /opt/ds
 RUN adduser ds sudo
 
-ADD run_ipython.sh /home/ds
-RUN chmod +x /home/ds/run_ipython.sh
-RUN chown ds /home/ds/run_ipython.sh
+ADD run_airflow.sh /home/ds
+RUN chmod +x /home/ds/run_airflow.sh
+RUN chown ds /home/ds/run_airflow.sh
 
 ADD .bashrc.template /home/ds/.bashrc
 
@@ -41,4 +41,6 @@ RUN mkdir /home/ds/trained_models
 
 
 RUN /opt/ds/bin/pip install tornado --upgrade
-CMD ["/home/ds/run_ipython.sh"]
+ADD ANSWERS_airflow_101_iris_group_activity.py /home/ds
+RUN /opt/ds/bin/python /home/ds/ANSWERS_airflow_101_iris_group_activity.py; exit 0
+CMD ["/opt/ds/bin/python", "/home/ds/ANSWERS_airflow_101_iris_group_activity.py"]

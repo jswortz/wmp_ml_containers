@@ -1,3 +1,3 @@
 #! /bin/bash
 
-/opt/ds/bin/jupyter-notebook --no-browser --port 8888 --ip=0.0.0.0
+python /home/ds/ANSWERS_airflow_101_iris_group_activity.py
